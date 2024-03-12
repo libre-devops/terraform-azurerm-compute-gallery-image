@@ -1,5 +1,5 @@
 resource "azurerm_shared_image" "shared_image" {
-  for_each                            = {for k, v in var.images : k => v}
+  for_each                            = { for k, v in var.images : k => v }
   gallery_name                        = var.gallery_name
   resource_group_name                 = var.rg_name
   location                            = var.location

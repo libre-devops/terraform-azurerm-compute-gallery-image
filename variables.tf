@@ -1,31 +1,11 @@
-variable "location" {
-  type        = string
-  description = "The name of the location"
-  default     = "uksouth"
-}
-
-variable "rg_name" {
-  type        = string
-  description = "The name of the resource group"
-}
-
-variable "tags" {
-  type        = map(string)
-  description = "The tags to be applied"
-}
-
 variable "gallery_name" {
   type        = string
   description = "The name of the shared image gallery"
 }
 
-
-
-
-
 variable "images" {
   description = "The block used to create 1 or more images"
-  type        = list(object({
+  type = list(object({
     name                                = string
     description                         = optional(string)
     specialized                         = optional(bool, false)
@@ -46,7 +26,7 @@ variable "images" {
     trusted_launch_enabled              = optional(bool)
     confidential_vm_supported           = optional(bool)
     confidential_vm_enabled             = optional(bool)
-    identifier                          = object({
+    identifier = object({
       offer     = string
       publisher = string
       sku       = string
@@ -59,3 +39,18 @@ variable "images" {
   }))
 }
 
+variable "location" {
+  type        = string
+  description = "The name of the location"
+  default     = "uksouth"
+}
+
+variable "rg_name" {
+  type        = string
+  description = "The name of the resource group"
+}
+
+variable "tags" {
+  type        = map(string)
+  description = "The tags to be applied"
+}
